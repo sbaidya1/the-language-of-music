@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Log In</title>
+  <link href="login.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+</head>
+
+<body>
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">Log in</div>
+        <div class="title signup">Sign up</div>
+      </div>
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked>
+          <input type="radio" name="slide" id="signup">
+          <label for="login" class="slide login">Log in</label>
+          <label for="signup" class="slide signup">Sign up</label>
+          <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+              <input type="password" name="password" placeholder="Password (at least 6 characters)" required>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Log in">
+            </div>
+            <div class="signup-link">Not a member? <a href="">Sign up now</a></div>
+          </form>
+          <form action="#" class="signup">
+            <div class="field">
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+              <input type="password" name="password" placeholder="Password (at least 6 characters)" required>
+            </div>
+            <div class="field">
+              <input type="password" name="cpassword" placeholder="Confirm password" required>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Sign up">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #D5CEA3;
+}
+
+#tit{
+  color: #1A120B;
+  font-family: "Playfair Display", sans-serif;
+  font-size:3em;
+  margin-top: 5.5%;
+  margin-bottom: 3.5%;
+  width:100%;
+  text-align: center;
+}
+
+.main{
+  max-width: 700px;
+  margin: auto;
+  padding: 30px 15px;
+}
+
+#optionsholder{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  margin-top:2%;
+}
+
+.option{
+  display:flex;
+  flex-direction: column;
+  border: 1px solid #1A120B;
+  width:18%;
+  padding:1%;
+  font-family: "Montserrat", sans-serif;
+  color:#3C2A21;
+  background-color: #e8e1b4db;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size:1.3em;
+  transition: transform 0.3s ease-in-out, box-shadow 0.35s ease-in-out;
+  margin-bottom:40px;
+}
+
+
+.option:hover{
+  cursor:pointer;
+  box-shadow: 0 0 20px rgba(33,33,33,.2); 
+  transform: scale(1.02);
+}

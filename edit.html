@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Edit Lyrics</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+</head>
+
+<body onload="start()">
+  <div class="main">
+    <div id="vid">
+      <div class="big">Step 2: Edit the Lyrics</div>
+      <div class="explain"> Because lyrics are retrieved from an online search, there may be errors such as stray punctuation or unnecessary lyrics. Click on any line to make any changes you feel necessary. 
+        You can completely delete a line, or add a new line to any part of the lyrics. If lyrics take more than 10 seconds to load, please check
+      if the song has been inputted correctly.</div>
+      <button class="next">Next Step</button>
+    </div>
+    <div id="lyrics">
+      <form id="teacherLyrics"></form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script type="module" src="fire.js"></script>
+</body>
+
+</html>

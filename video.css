@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #E5E5CB;
+}
+
+* {
+  cursor: default;
+  margin: 0;
+}
+
+.big {
+  color: #3C2A21;
+  font-family: "Playfair Display", sans-serif;
+  font-size: 3.6em;
+  margin-top: 265px;
+  width:40%;
+}
+
+.explain {
+  color: #3C2A21;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  margin-top: 350px;
+  width: 40%
+}
+
+.big,
+.explain {
+  position: fixed;
+  margin-left: 6%;
+}
+
+#link,
+#stuff {
+  width: 50%;
+}
+
+#link{
+  width:100%;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box{
+  margin-top:510px;
+  margin-left:40px;
+  padding:5px;
+  border: 2px solid #3C2A21;
+  height:30px;
+  width:500px;
+  outline: 0;
+  background:#e0e0cd;
+  cursor: text;
+  font-family: "Playfair Display", sans-serif;
+  resize: none;
+  overflow: auto;
+  font-size:1.2em;
+}
+
+.box::placeholder{
+  opacity:0.6;
+  transition: 0.3s all;
+}
+
+#get{
+  cursor:pointer;
+  font-family: "Playfair Display", sans-serif;
+  margin-top:510px;
+  height:44px;
+  border:2px solid #3C2A21;
+  border-left:0;
+  padding:0 10px;
+  background:#e0e0cd;
+  font-size:1em;
+  color: #3C2A21;
+}
+
+#get:hover{
+  opacity:0.7;
+}
+
+#get:active{
+  opacity:0.6;
+}
+
+#link{
+  display:flex;
+  flex-direction: row;
+}
+
+#playerholder{
+  position: absolute;
+  height:242px;
+  width:430px;
+}
+
+#player {
+  margin-top:230px;
+  margin-left:120px;
+  overflow: hidden;
+  height:242px;
+  width:430px;
+  border:1px solid #3C2A21;
+}
+
+#subm{
+  margin-top: 40px;
+  margin-left:270px;
+  padding: 15px 23px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #D5CEA3;
+  color: #3C2A21;
+  border: none;
+  font-size: 1em;
+  display: block;
+  transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+#subm:hover{
+  cursor: pointer;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+#subm:active{
+  opacity:0.7;
+}
+
+.next {
+  font-family: "Montserrat", sans-serif;
+  color: #3C2A21;
+  border: 1px solid #3C2A21;
+  height:30px;
+  text-align: center;
+  position: fixed;
+  margin-left:21%;
+  margin-top:470px;
+  background-color: #E5E5CB;
+  font-size: 1.1em;
+  cursor:pointer;
+  transition: all 0.2s;
+}
+
+.next:hover{
+  color:#E5E5CB;
+  background-color: #3C2A21;
+}
+
+a{
+  color:#3C2A21;
+  cursor:pointer;
+}

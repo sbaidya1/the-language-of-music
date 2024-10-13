@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Input a Song</title>
+  <link href="inputsong.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <script src="https://kit.fontawesome.com/0acf43e926.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="tex">Input to Play</div>
+  <div id="ugh">
+    <div class="warn">Play codes can be obtained by creating lessons using the teacher portal. If you do not have a play code, input a song of your choice.</div>
+  </div>
+  <div class="main">
+    <div class="form-container">
+      <div class="inp">
+        <form autocomplete="off" id="codeform">
+          Play Code: <br>
+          <input type="text" id="play" placeholder="Play Code" size="25">
+          <input type="button" id="subm" value="Submit" onclick="start2()">
+        </form>
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="inp">
+        <form autocomplete="off" id="inpform">
+          Song: <br>
+          <input type="text" id="title" placeholder="Title" size="25">
+          <input type="text" id="artist" placeholder="Artist" size="25">
+          <input type="button" id="subm" value="Submit" onclick="start()">
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="main.js"></script>
+  <script src="quickfire.js" type="module"></script>
+</body>
+
+</html>

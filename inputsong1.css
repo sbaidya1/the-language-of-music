@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+body {
+  background: #E5E5CB;
+  height: 100%;
+}
+
+* {
+  cursor: default;
+  margin: 0;
+}
+
+#subm {
+  margin-top:20px; 
+  margin-left: 140px;
+  margin-bottom:20px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #D5CEA3;
+  color: #3C2A21;
+  border: none;
+  font-size: 0.35em;
+  display: block;
+}
+
+.submit-button {
+  transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.submit-button:active {
+  opacity: 0.7;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.big {
+  color: #3C2A21;
+  font-family: "Playfair Display", sans-serif;
+  font-size: 3.6em;
+  margin-top: 265px;
+  width: 44%;
+}
+
+.explain {
+  color: #3C2A21;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  margin-top: 350px;
+  width: 42%
+}
+
+.big,
+.explain {
+  position: fixed;
+  margin-left: 6%;
+}
+
+.next:hover{
+  color:#E5E5CB;
+  background-color: #3C2A21;
+}
+
+#lyrics,
+#vid {
+  width: 50%;
+  overflow: hidden;
+}
+
+.inp{
+  color: #1A120B;
+  font-family: "Playfair Display", sans-serif;
+  font-size:3.1em;
+  margin-top:270px;
+  margin-left:25%;
+  display:flex;
+}
+
+#title, #artist{
+ margin-bottom: 15px;
+}
+
+input[type=text]{
+  text-align: center;
+  border: none;
+  margin-top:2.5%;
+  border-bottom: 2px solid #3C2A21;
+  opacity:0.7;
+  background-color: #E5E5CB;
+  font-family: "Montserrat", sans-serif;
+  font-size:0.625em;
+  transition: 0.2s all;
+  cursor:text;
+}
+
+input[type=text]::placeholder {
+  text-align: center;
+  color: #c2c2ad;
+  transition: 0.3s all;
+}
+
+input[type=text]:focus {
+  opacity: 1;
+  border-bottom: 2px solid #1A120B;
+  color: #3C2A21;
+  outline:none;
+}
+
+input[type=text]:focus::placeholder{
+  opacity: 1;
+  color: #9b9b8c;
+}

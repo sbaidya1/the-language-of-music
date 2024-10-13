@@ -1,0 +1,20 @@
+{
+  "hosting": {
+    "public": "(public)",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/youtube-api", 
+        "destination": "https://www.youtube.com" 
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

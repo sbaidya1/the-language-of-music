@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+body {
+  background: #E5E5CB;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top:8.4%;
+}
+
+.form-container {
+  align-self: flex-start;
+  margin-bottom: 20px; /* Adjust the value to control the space between forms */
+  margin: 0 6%;
+}
+
+.inp {
+  color: #3C2A21;
+  font-family: "Playfair Display", sans-serif;
+  font-size: 3em;
+}
+
+
+form{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.warn{
+  color: #3C2A21;
+  font-family: "Playfair Display", sans-serif;
+  text-align: center;
+  font-style: italic;
+  font-size: 1em;
+  margin-top: 20px;
+  width:38%;
+}
+
+#ugh{
+  display:flex;
+  justify-content:center;
+}
+
+#tex{
+  color: #3C2A21;
+  font-family: "Playfair Display", sans-serif;
+  margin-top:3.5%;
+  font-size:4em;
+  text-align: center;
+}
+
+input[type=text]{
+  border: none;
+  margin-top:2.5%;
+  border-bottom: 2px solid #3C2A21;
+  opacity:0.7;
+  background-color: #E5E5CB;
+  font-family: "Montserrat", sans-serif;
+  font-size:0.625em;
+  transition: 0.2s all;
+  cursor:text;
+  text-align: center;
+}
+
+input[type=text]::placeholder {
+  color: #c2c2ad;
+  transition: 0.3s all;
+}
+
+input[type=text]:focus {
+  opacity: 1;
+  border-bottom: 2px solid #1A120B;
+  color: #3C2A21;
+  outline:none;
+}
+
+input[type=text]:focus::placeholder{
+  opacity: 1;
+  color: #9b9b8c;
+}
+
+
+#subm{
+  margin-top:30px;
+  /* margin-left: 41.5%; */
+  padding: 11px 17px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #D5CEA3;
+  color: #3C2A21;
+  border:none;
+  font-size:0.3em;
+  display: block;
+  transition: box-shadow .2s ease-in-out; 
+  width:100px;
+}
+
+#subm:hover{
+  cursor:pointer;
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+#lafamille, #papaoutai{
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+#artist{
+  margin-top:25px;
+}
+
+#play, #title{
+  margin-top: 40px;
+}
+
+#codeform{
+  margin-right: 5%;
+}
+
+#inpform{
+  margin-left: 5%;
+}
+
+#or{
+  color:#1A120B;
+  margin-top: 4.6%;
+  font-size: 2em;
+  font-style: italic;
+}

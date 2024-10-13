@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="settings.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <title>Edit Settings</title>
+</head>
+<body onload="show3()">
+    <div class="main">
+    <div id="vid">
+      <div class="big">Edit Settings</div>
+      <div class="explain">The final step! Choose the settings for the lesson. Students will not be able to change the settings on their own.</div>
+        <button class="finish">Save Settings</button>
+    </div>
+    <div id="settholder">
+            <div class="settings">
+              <div class="topstuff">
+                <p id="titSet">Settings</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="charCt" type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+                <p>Show character count</p>
+              </div>
+              <!-- <div class="options">
+                <label class="switch">
+                  <input id="firWd" type="checkbox">
+                  <span class="slider"></span>
+                </label>
+                <p>Show first word of each line</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="lasWd" type="checkbox">
+                  <span class="slider"></span>
+                </label>
+                <p>Show last word of each line</p>
+              </div> -->
+              <div class="options">
+                <label class="switch">
+                  <input id="reqAcc" type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+                <p>Require accents</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="*rev" type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+                <p>Enter *** to reveal word</p>
+              </div>
+            </div>
+    </div>
+    <script src="editchoose.js"></script>
+    <script type="module" src="fire1.js"></script>
+</body>
+</html>

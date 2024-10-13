@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+*{
+  cursor:default;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #E5E5CB;
+}
+
+.main{
+  display: flex; 
+}
+
+.content {
+  width: 52%;
+  margin: 3.5%;
+}
+
+.blanks {
+  padding: 2px;
+  margin: 5px; 
+  outline: 0; 
+  border: 0; 
+  border-bottom: 2px solid black;
+  background:#E5E5CB;
+  cursor:text;
+  text-align: center;
+}
+input[type=text]:focus {
+  outline:none;
+}
+
+input[type=text], input[type=text]::placeholder, .content p {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 1.1em;
+}
+
+form {
+  display: block;
+  margin: 5%; 
+  margin-left:1.5%
+}
+
+.lb {
+  height: 20px; 
+}
+
+#songheader{
+  color: #3C2A21;
+  font-family: "Playfair Display", sans-serif;
+  font-size:3.5em;
+  margin-left: 1.5%;
+  margin-top: -1%;
+  padding-bottom:1%;
+}
+
+.fa-play, .fa-pause{
+  display:inline;
+  position:relative;
+  color: #3C2A21;
+  margin-left: 8px;
+  top:3.5px;
+}
+
+i{
+  cursor:pointer;
+}
+
+.youdidit{
+  position:fixed;
+  height:400px;
+  width:400px;
+  padding:30px;
+  top: 1%;
+  left: 35%;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  transform: scale(0.005);
+  transition: 0.7s all;
+  visibility:hidden;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Play!</title>
+  <link href="lyrics.css" rel="stylesheet" type="text/css" />
+  <link href="vid.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <script src="https://kit.fontawesome.com/0acf43e926.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="createEverything()">
+  <div class="main"> 
+    <div class="youdidit">
+      <img src="congrats.svg">
+    </div>
+      <div class = "content">
+        <div class="headsong"></div>
+      </div>
+      <div class="vid">
+        <div class="vidstuff">
+          <div class="icons">
+            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='index.html'"></i>
+            <i class="fa-solid fa-gears fa-lg" onclick="openSettings()"></i>
+            <i class="fa-solid fa-square-poll-vertical fa-lg" onClick="parent.open('https://forms.gle/j5di71bPfFHXeCLE8')" ></i>
+          </div>
+          <div id="playerholder">
+            <div class="settings">
+              <div class="topstuff">
+                <p id="titSet">Settings</p>
+                <i class="fa-solid fa-xmark" onclick="closeSettings()"></i>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="charCt" type="checkbox" onclick="charCt(this)" checked>
+                  <span class="slider"></span>
+                </label>
+                <p>Show character count</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="firWd" type="checkbox" onclick="firWd(this)">
+                  <span class="slider"></span>
+                </label>
+                <p>Show first word of each line</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="lasWd" type="checkbox" onclick="lasWd(this)">
+                  <span class="slider"></span>
+                </label>
+                <p>Show last word of each line</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="reqAcc" type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+                <p>Require accents</p>
+              </div>
+              <div class="options">
+                <label class="switch">
+                  <input id="*rev" type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+                <p>Enter *** to reveal word</p>
+              </div>
+            </div>
+            <div id="player"></div>
+          </div>
+          <div class="min">
+            <p class="help" onclick="minimize(this)"><u>Click to Minimize</u> </p>
+            <i class="fa-regular fa-circle-question fa-sm">
+              <span class="tooltiptext">While retrieval of an audio version of the song is prioritized, sometimes a lyric video is all that is available. If you see lyrics, please minimize the video to avoid reading the lyrics.
+</span>
+            </i>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="vid.js"></script>
+</body>
+
+</html>

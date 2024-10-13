@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <title>Edit Video</title>
+  <link href="video.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="show2()">
+  <div class="main">
+    <div id="vid">
+      <div class="big">Edit the video</div>
+      <div class="explain">Insert the YouTube or Google Drive <strong>embed</strong> link for the video you want students to see. Click 
+        for instructions on how to get a <u><a href="YouTube Embed Link.png" target="_blank">YouTube embed link</a></u> and a 
+        <u><a href="Google Drive Embed.png" target="_blank">Google Drive embed link</a></u>. Click "Get Video" to check that link is 
+        working properly. If your video does not appear in the box, please check to see if the link has been entered correctly.</div>
+        <button class="next">Save Video</button>
+    </div>
+    <div id="stuff">
+      <div id="playerholder">
+        <iframe id="player"></iframe>
+      </div>
+      <div id="link">
+        <input class="box" placeholder="Enter link here"></input>
+        <button id="get">Get Video</button>
+      </div>
+    </div>
+  </div>
+  <script src="editchoose.js"></script>
+  <script type="module" src="fire1.js"></script>
+
+</body>
+
+</html>
