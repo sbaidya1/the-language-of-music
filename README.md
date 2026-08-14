@@ -102,7 +102,7 @@ point.
 
 Two milestones since the initial release:
 
-- **Girl Scout Gold Award (2023)** — recognizing sustained community impact,
+- **Girl Scout Gold Award** — recognizing sustained community impact,
   with the app being adopted and iterated on based on real learner feedback.
 - **WW-P District pilot** — the world-languages program uses The Language of
   Music as one of its supplemental tools, especially for French and Spanish
