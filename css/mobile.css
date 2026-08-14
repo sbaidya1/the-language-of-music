@@ -52,10 +52,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure images scale down on small screens */
-img, svg, video, iframe {
+/* Ensure images scale down on small screens.
+   NOTE: iframes are intentionally excluded — they have no intrinsic
+   aspect ratio, so `height: auto` collapses them to 150px. The video
+   player sets its own aspect-ratio + max-width below. */
+img, svg, video {
   max-width: 100%;
   height: auto;
+}
+
+/* Shrink the YouTube player on narrow screens so it fits AND stays 16:9.
+   The desktop rule in vid.css uses fixed 430x242 (already 16:9). Below
+   ~500px viewport, we swap to 90vw wide with an explicit calc height.
+   Explicit height (not aspect-ratio) so the iframe inside inherits it
+   via its `height="100%"` attribute — aspect-ratio doesn't reliably
+   flow through to iframe replaced elements. */
+@media only screen and (max-width: 500px) {
+  #playerholder {
+    width: 90vw !important;
+    height: calc(90vw * 9 / 16) !important;
+  }
 }
 
 /* Mobile-specific layout adjustments */
