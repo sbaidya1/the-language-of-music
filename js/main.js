@@ -1,7 +1,7 @@
 const optionsGenius = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '',
+		'X-RapidAPI-Key': "",
 		'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
 	}
 };
@@ -311,7 +311,7 @@ function lasWd(check) {
 const optionsYT = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '',
+    'X-RapidAPI-Key': "",
     'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
   }
 };

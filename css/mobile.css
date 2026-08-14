@@ -1,0 +1,129 @@
+/*
+ * Mobile & Safari compatibility fixes.
+ * Loaded AFTER all other stylesheets so these overrides win.
+ * Kept intentionally minimal — the goal is to make the site usable on
+ * phones and Safari without rewriting the original CSS.
+ */
+
+/* Safari: 100vh includes the address bar which causes clipped layouts.
+   Use the small viewport height unit where supported. */
+@supports (height: 100svh) {
+  html, body {
+    height: 100svh;
+    min-height: 100svh;
+  }
+  .scroll, .title, .main, .snap {
+    min-height: 100svh;
+  }
+}
+
+/* Safari fallback for older versions using -webkit-fill-available */
+@supports not (height: 100svh) {
+  html, body {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Consistent form control appearance on iOS Safari */
+input, select, textarea, button {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* iOS zooms in when tapping inputs with font-size < 16px. Enforce a minimum. */
+input, select, textarea {
+  font-size: max(16px, 1em);
+}
+
+/* Kill the blue tap highlight on iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve touch scrolling on iOS */
+body, .scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Font smoothing for Safari */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure images scale down on small screens */
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-specific layout adjustments */
+@media only screen and (max-width: 900px) {
+  /* Font sizes based on vw explode on tiny screens.
+     Override the loudest cases so text stays readable. */
+  .tit {
+    font-size: 4em !important;
+    margin-top: 8vh !important;
+  }
+  .song-title {
+    font-size: 4vw !important;
+  }
+  .music-box {
+    width: 60vw !important;
+    height: 60vw !important;
+  }
+  .info {
+    font-size: 28px !important;
+    margin-left: 4% !important;
+  }
+  .lil {
+    font-size: 16px !important;
+    padding: 0 5%;
+  }
+  nav {
+    flex-wrap: wrap;
+    height: auto !important;
+    padding: 5px 0;
+  }
+  nav a {
+    margin: 5px 3% !important;
+    font-size: 14px;
+  }
+  .titlestuff {
+    gap: 4% !important;
+    flex-wrap: wrap;
+  }
+  #right, #left {
+    width: 3vw !important;
+    height: 3vw !important;
+  }
+  #right::before, #left::before {
+    width: 3vw !important;
+    height: 3vw !important;
+  }
+  #myinput::-webkit-slider-thumb {
+    width: 3vw !important;
+    height: 3vw !important;
+  }
+  /* Hover effects don't apply on touch; ensure clickable elements
+     still look interactive by keeping the default state visible. */
+  a:hover {
+    font-size: inherit !important;
+  }
+  /* Prevent horizontal scroll from wide fixed-width children */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* Very small screens (phones in portrait) */
+@media only screen and (max-width: 480px) {
+  .tit {
+    font-size: 3em !important;
+  }
+  .info {
+    font-size: 22px !important;
+  }
+}
