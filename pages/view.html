@@ -3,26 +3,27 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Play!</title>
-  <link href="lyrics.css" rel="stylesheet" type="text/css" />
-  <link href="vid.css" rel="stylesheet" type="text/css" />
-  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <link href="../css/lyrics1.css" rel="stylesheet" type="text/css" />
+  <link href="../css/vid1.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.svg">
   <script src="https://kit.fontawesome.com/0acf43e926.js" crossorigin="anonymous"></script>
+  <link href="../css/mobile.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="createEverything()">
   <div class="main"> 
-    <div class="youdidit">
-      <img src="congrats.svg">
-    </div>
+    <!-- <div class="youdidit">
+      <img src="../assets/congrats.svg">
+    </div> -->
       <div class = "content">
         <div class="headsong"></div>
       </div>
       <div class="vid">
         <div class="vidstuff">
           <div class="icons">
-            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='index.html'"></i>
+            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='../index.html'"></i>
             <i class="fa-solid fa-gears fa-lg" onclick="openSettings()"></i>
             <i class="fa-solid fa-square-poll-vertical fa-lg" onClick="parent.open('https://forms.gle/j5di71bPfFHXeCLE8')" ></i>
           </div>
@@ -41,20 +42,6 @@
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="firWd" type="checkbox" onclick="firWd(this)">
-                  <span class="slider"></span>
-                </label>
-                <p>Show first word of each line</p>
-              </div>
-              <div class="options">
-                <label class="switch">
-                  <input id="lasWd" type="checkbox" onclick="lasWd(this)">
-                  <span class="slider"></span>
-                </label>
-                <p>Show last word of each line</p>
-              </div>
-              <div class="options">
-                <label class="switch">
                   <input id="reqAcc" type="checkbox" checked>
                   <span class="slider"></span>
                 </label>
@@ -67,22 +54,18 @@
                 </label>
                 <p>Enter *** to reveal word</p>
               </div>
+              <p id="only">Only the teacher of this lesson can change the settings.</p>
             </div>
-            <div id="player"></div>
-          </div>
-          <div class="min">
-            <p class="help" onclick="minimize(this)"><u>Click to Minimize</u> </p>
-            <i class="fa-regular fa-circle-question fa-sm">
-              <span class="tooltiptext">While retrieval of an audio version of the song is prioritized, sometimes a lyric video is all that is available. If you see lyrics, please minimize the video to avoid reading the lyrics.
-</span>
-            </i>
+              <iframe id="player"></iframe>
           </div>
         </div>
       </div>
   </div>
 
-  <script src="main.js"></script>
-  <script src="vid.js"></script>
+  <script src="../js/main1.js"></script>
+  <script type="module" src="../js/fire1.js"></script>
+  <script src="../js/confetti.js"></script>
+
 </body>
 
 </html>

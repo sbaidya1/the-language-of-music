@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Language of Music</title>
-  <link href="home1.css" rel="stylesheet" type="text/css" />
-  <link href="home2.css" rel="stylesheet" type="text/css" />
-  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <link href="css/home1.css" rel="stylesheet" type="text/css" />
+  <link href="css/home2.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.svg">
   <script src="https://kit.fontawesome.com/0acf43e926.js" crossorigin="anonymous"></script>
+  <link href="css/mobile.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -16,9 +17,9 @@
   <div class="scroll">
     <div class="title snap">
       <nav class="navMenu">
-        <a href="instructions.html">Instructions</a>
+        <a href="pages/instructions.html">Instructions</a>
         <a href="https://forms.gle/KSWLrytesH9H11Ea7" target="_blank">Survey</a>
-        <a href="login.html">Teacher Portal</a>
+        <a href="pages/login.html">Teacher Portal</a>
       </nav>
       <div class="tit">
         The Language<br>of Music
@@ -29,13 +30,13 @@
       <div class="info inmain">
         <p>Learning a language is difficult.<br>Luckily, music is here to help you.</p>
         <br>
-        <p class="lil" id="flil">Please read the <u onclick="window.location.href='instructions.html'">instructions</u> before playing.</p>
+        <p class="lil" id="flil">Please read the <u onclick="window.location.href='pages/instructions.html'">instructions</u> before playing.</p>
         <p class="lil">When you are ready, click the play button to begin!</p>
-        <p class="lil" id="tpo">To access the teacher portal, click <u onclick="window.location.href='login.html'">here</u>.</p>
+        <p class="lil" id="tpo">To access the teacher portal, click <u onclick="window.location.href='pages/login.html'">here</u>.</p>
       </div>
       <div class="player inmain">
         <div class="music-box">
-          <img src="logo.svg">
+          <img src="assets/logo.svg">
         </div>
         <div class="titlestuff">
           <div class="song-title">The Language <br>of Music</div>
@@ -49,14 +50,14 @@
         </div>
         <div class="playb">
           <i class="fa-solid fa-backward-step fa-3x"></i>
-          <i class="fa-solid fa-circle-play fa-4x" onclick="window.location.href='inputsong.html'"></i>
+          <i class="fa-solid fa-circle-play fa-4x" onclick="window.location.href='pages/inputsong.html'"></i>
           <i class="fa-solid fa-forward-step fa-3x"></i>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="home.js"></script>
+  <script src="js/home.js"></script>
 </body>
 
 </html>
