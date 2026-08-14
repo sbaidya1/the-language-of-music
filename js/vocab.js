@@ -4,19 +4,39 @@
  * How it works:
  *   1. Every word in the lyrics is rendered as an <input> with the actual
  *      word stored in `input.answer` (see main.js / main1.js).
- *   2. When the user double-clicks any word input, we grab that answer,
+ *   2. When lyrics have finished rendering, we auto-detect the language
+ *      using the `franc-min` library (client-side, n-gram based). The
+ *      dropdown is set to the detected language — user can override.
+ *   3. When the user double-clicks any word input, we grab that answer,
  *      look up its translation using the MyMemory API (free, no key,
  *      https://mymemory.translated.net/doc/spec.php), and show it in
  *      a small tooltip anchored to the word.
- *   3. Translations are cached in memory so repeated clicks are instant.
+ *   4. Translations are cached in memory so repeated clicks are instant.
  *
  * Source language comes from a <select id="srcLang"> on the page.
  * Target language is always English, unless source IS English, in which
  * case target falls back to Spanish.
  *
- * To add a new source language: just add an <option> to the dropdown in
- * play.html / view.html. Nothing else needs to change here.
+ * To add a new source language: add an <option> to the dropdown in
+ * play.html / view.html AND add a mapping to ISO_3_TO_2 below so
+ * auto-detect can select it.
  */
+
+// -----------------------------------------------------------------------
+// franc-min returns ISO 639-3 codes (3 letters). Our dropdown uses
+// ISO 639-1 (2 letters). This maps between them for languages we support.
+// -----------------------------------------------------------------------
+const ISO_3_TO_2 = {
+  spa: "es",
+  fra: "fr",
+  deu: "de",
+  ita: "it",
+  por: "pt",
+  jpn: "ja",
+  kor: "ko",
+  cmn: "zh",  // Mandarin Chinese
+  eng: "en",
+};
 
 // -----------------------------------------------------------------------
 // Translation cache. Keyed by "word|sourceLang".
@@ -126,6 +146,63 @@ async function handleDoubleClick(event) {
 }
 
 // -----------------------------------------------------------------------
+// Auto-detect the song language from all rendered lyric words.
+//
+// We use `franc-min` (https://github.com/wooorm/franc) which does n-gram
+// language detection entirely in the browser — no API call, no key.
+// Loaded via dynamic import from a CDN so we don't have to touch the HTML.
+// -----------------------------------------------------------------------
+async function detectLanguageFromLyrics() {
+  // Gather text from every word input on the page.
+  const inputs = document.querySelectorAll("input.blanks");
+  if (inputs.length < 5) return null;  // too little text to be reliable
+  const text = Array.from(inputs).map(i => i.answer).join(" ");
+
+  try {
+    const mod = await import("https://esm.run/franc-min@6");
+    const iso3 = mod.franc(text, { minLength: 10 });
+    return ISO_3_TO_2[iso3] || null;
+  } catch (err) {
+    console.log("language detection failed", err);
+    return null;
+  }
+}
+
+// -----------------------------------------------------------------------
+// Wait for lyrics to finish rendering, then run auto-detect.
+//
+// main.js creates the word inputs asynchronously (after a fetch), so we
+// can't just run on DOMContentLoaded. We use a MutationObserver to watch
+// the .content container and consider rendering "done" once the number
+// of word inputs stops growing for 500ms.
+// -----------------------------------------------------------------------
+function whenLyricsReady(callback) {
+  const content = document.querySelector(".content");
+  if (!content) return;
+
+  let lastCount = 0;
+  let stableTimer = null;
+
+  const check = () => {
+    const count = document.querySelectorAll("input.blanks").length;
+    if (count === lastCount && count > 0) {
+      // No new inputs for the debounce window → we're done.
+      observer.disconnect();
+      callback();
+      return;
+    }
+    lastCount = count;
+    clearTimeout(stableTimer);
+    stableTimer = setTimeout(check, 500);
+  };
+
+  const observer = new MutationObserver(check);
+  observer.observe(content, { childList: true, subtree: true });
+  // Kick off the first debounce in case lyrics are already there.
+  stableTimer = setTimeout(check, 500);
+}
+
+// -----------------------------------------------------------------------
 // Wire everything up when the page loads.
 // -----------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -137,13 +214,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (tooltipEl && !tooltipEl.contains(e.target)) hideTooltip();
   });
 
-  // Remember the last-chosen source language across page loads.
   const dropdown = document.getElementById("srcLang");
   if (dropdown) {
+    // Restore last-chosen language for this tab as a starting guess.
     const saved = sessionStorage.getItem("srcLang");
     if (saved) dropdown.value = saved;
     dropdown.addEventListener("change", () => {
       sessionStorage.setItem("srcLang", dropdown.value);
+    });
+
+    // Once the lyrics have rendered, auto-detect and set the dropdown.
+    whenLyricsReady(async () => {
+      const detected = await detectLanguageFromLyrics();
+      if (detected) {
+        dropdown.value = detected;
+        sessionStorage.setItem("srcLang", detected);
+      }
     });
   }
 });

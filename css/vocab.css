@@ -45,14 +45,18 @@
   gap: 8px;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  color: #D5CEA3;
+  color: #1A120B;
   margin: 10px;
 }
 
+.lang-picker small {
+  opacity: 0.75;
+}
+
 .lang-picker select {
-  background-color: transparent;
-  color: #D5CEA3;
-  border: 1px solid #D5CEA3;
+  background-color: #E5E5CB;
+  color: #1A120B;
+  border: 1px solid #3C2A21;
   border-radius: 6px;
   padding: 4px 8px;
   font-family: "Montserrat", sans-serif;
