@@ -17,7 +17,7 @@ function start1() {
 const optionsGenius = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': "",
+		'X-RapidAPI-Key': window.APP_CONFIG.rapidApiKey,
 		'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
 	}
 };
@@ -270,7 +270,7 @@ function selectBlank(event) {
 const optionsYT = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': "",
+    'X-RapidAPI-Key': window.APP_CONFIG.rapidApiKey,
     'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
   }
 };

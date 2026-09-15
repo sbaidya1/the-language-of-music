@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -41,33 +41,33 @@
       <div class="vid">
         <div class="vidstuff">
           <div class="icons">
-            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='../index.html'"></i>
-            <i class="fa-solid fa-gears fa-lg" onclick="openSettings()"></i>
-            <i class="fa-solid fa-square-poll-vertical fa-lg" onClick="parent.open('https://forms.gle/j5di71bPfFHXeCLE8')" ></i>
+            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='../index.html'" role="button" aria-label="Home"></i>
+            <i class="fa-solid fa-gears fa-lg" onclick="openSettings()" role="button" aria-label="Settings"></i>
+            <i class="fa-solid fa-square-poll-vertical fa-lg" onClick="parent.open('https://forms.gle/j5di71bPfFHXeCLE8')" role="button" aria-label="Feedback survey"></i>
           </div>
           <div id="playerholder">
             <div class="settings">
               <div class="topstuff">
                 <p id="titSet">Settings</p>
-                <i class="fa-solid fa-xmark" onclick="closeSettings()"></i>
+                <i class="fa-solid fa-xmark" onclick="closeSettings()" role="button" aria-label="Close settings"></i>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="charCt" type="checkbox" onclick="charCt(this)" checked>
+                  <input id="charCt" type="checkbox" onclick="charCt(this)" checked aria-label="Show character count">
                   <span class="slider"></span>
                 </label>
                 <p>Show character count</p>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="reqAcc" type="checkbox" checked>
+                  <input id="reqAcc" type="checkbox" checked aria-label="Require accents">
                   <span class="slider"></span>
                 </label>
                 <p>Require accents</p>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="*rev" type="checkbox" checked>
+                  <input id="*rev" type="checkbox" checked aria-label="Enter three asterisks to reveal word">
                   <span class="slider"></span>
                 </label>
                 <p>Enter *** to reveal word</p>
@@ -80,6 +80,7 @@
       </div>
   </div>
 
+  <script src="../js/config.js"></script>
   <script src="../js/main1.js"></script>
   <script type="module" src="../js/fire1.js"></script>
   <script src="../js/confetti.js"></script>

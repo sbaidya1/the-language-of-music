@@ -15,6 +15,12 @@
   .scroll, .title, .main, .snap {
     min-height: 100svh;
   }
+  /* pages/inputsong.html: .main sits below #tex/#ugh instead of being the
+     full-page wrapper, so forcing it to fill the viewport on top of their
+     height overflows the page and creates a phantom scrollbar. */
+  body:has(#tex) .main {
+    min-height: auto;
+  }
 }
 
 /* Safari fallback for older versions using -webkit-fill-available */
@@ -141,5 +147,42 @@ img, svg, video {
   }
   .info {
     font-size: 22px !important;
+  }
+}
+
+/* pages/inputsong.html: stack the two form panels instead of squeezing
+   them side by side, and cap the fixed-em headings/warning width. */
+@media only screen and (max-width: 700px) {
+  .main {
+    flex-wrap: wrap !important;
+  }
+  .form-container {
+    width: 88% !important;
+    margin: 0 auto 20px !important;
+  }
+  .warn {
+    width: 85% !important;
+  }
+  #tex {
+    font-size: 2.4em !important;
+  }
+  .inp {
+    font-size: 2em !important;
+  }
+
+  /* pages/choose.html: the fixed-position side text overlaps the
+     lyrics/video column on narrow screens; stack them instead. */
+  .big, .explain {
+    position: static !important;
+    width: 88% !important;
+    margin: 16px auto !important;
+  }
+  .next {
+    position: static !important;
+    margin: 16px auto !important;
+  }
+  #lyrics, #vid {
+    width: 100% !important;
+    margin-left: 0 !important;
   }
 }

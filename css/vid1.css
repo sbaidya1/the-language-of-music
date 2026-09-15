@@ -29,13 +29,14 @@
 }
 
 .icons{
-  position: sticky;
+  position: relative;
   margin-bottom: 15px;
   color: #3C2A21;
 }
 
 .icons i{
   margin:8px;
+  cursor: pointer;
 }
 
 .min p{

@@ -1,7 +1,7 @@
 const optionsGenius = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': "",
+		'X-RapidAPI-Key': window.APP_CONFIG.rapidApiKey,
 		'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
 	}
 };
@@ -239,17 +239,20 @@ async function createEverything() {
     const lafamille = ["[Tony Parker : La famille]", "Comment résumer ma vie", "Sans parler de ma famille", "Maman je t'aime", "Papa je t'aime à la folie", "Mes deux petits frères aussi", "Vous disent merci", "Merci pour l'éducation", "L'école de la vie", "[]", "Comment résumer ma vie", "J'ai ving-trois piges", "Enfance difficile mais magnifique", "J'ai grandi avec le minimum", "L'amour de mes parents", "Le meilleur de deux mondes", "Un père noir", "Une mère blanche", "Métissage entre l'Europe et les USA", "V'la le mélange", "Le cocktail explosif", "Papa joue au basket", "Maman fait du mannequinat", "À la maison le daron est strict", "Je reçois des coups de pieds de 46", "Quand je fais des bêtises", "Avec mes frères s'est dur", "Mais c'est grâce à ça", "Qu'aujourd'hui je suis un homme qui s'affirme", "[Refrain]", "I just wanna thank you", "Say thank you", "For everything you've done for me", "I just wanna thank you", "Say thank you", "For all the love you've given to me", "[Verse 2]", "Comment résumer ma vie", "Sans parler de ma famille", "Maman merci pour les vitamines", "J'aurai jamais assez de mots, assez de rimes, assez de salive", "Pour expliquer ton rôle dans la réussite de ma vie", "Papa merci pour le Sket-Ba", "L'amour du jeu, le mental, la pression", "C'est à travers mes yeux que tu réalises ton rêve", "La fierté de mon père", "Le jour de la draft mais", "Les années passent, défilent", "C'est comme un film", "Même tout l'argent que j'ai ne vaut pas ma famille", "Même tout l'argent du monde ne vaut pas la famille", "Je te le répète", "Bien avant le matériel et le succès", "Bien avant le basket et les paillettes", "Vous êtes la raison pour laquelle j'ai les pieds sur terre", "Même millionnaire je garderai mes repères", "[Refrain]", "I just wanna thank you, I wanna thank you", "Say thank you", "For everything you've done for me", "I just wanna thank you, I wanna thank you", "Say thank you", "For all the love you've given to me", "And all that I can say is, thank you, thank you, thank you, thank you, thank you, thank you", "And all that I can say, thank you, thank you, thank you, thank you, thank you, thank you", "[]", "All I wanna say, is thank you", "All I can say is", "I say, all I can say is", "[]", "C'est pour toute les reums et darons", "Où que ce soit de Bamako au fin fond du Texas", "C'est pour toute les reums et darons", "Où que ce soit de Bamako au fin fond du Texas", "C'est pour toute les reums et darons", "Où que ce soit de Bamako au fin fond du Texas", "C'est pour toute les reums et darons", "Où que ce soit de Bamako au fin fond du Texas", "[]", "All I wanna say is thank you from the bottom of my heart"]
     const better = await cleanUpLyrics(lafamille)
     createForm(better)
+    renderDifficultyBadge(better)
     embed()
   } else if (title == "Papaoutai" && artist == "Stromae") {
     vidId = "qDBqiRdvvoo"
     const papaoutai = ["[Paroles de ‘Papaoutai’]", "[Couplet 1]", "Dites-moi d'où il vient", "Enfin je saurai où je vais", "Maman dit que lorsqu'on cherche bien", "On finit toujours par trouver", "Elle dit qu'il n'est jamais très loin", "Qu'il part très souvent travailler", "Maman dit travailler c'est bien", "Bien mieux qu'être mal accompagné", "Pas vrai ?", "[Pont]", "Où est ton papa ?", "Dis-moi où est ton papa ?", "Sans même devoir lui parler", "Il sait ce qui ne va pas", "Ah sacré papa", "Dis-moi où es-tu caché ?", "Ça doit, faire au moins mille fois que j'ai", "Compté mes doigts", "Hey !", "[Refrain]", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, où t'es où, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, où t'es où, papaoutai ?", "Où t'es", "Où t'es", "[Couplet 2]", "Quoi, qu'on y croit ou pas", "Y aura bien un jour où on n'y croira plus", "Un jour ou l'autre on sera tous papa", "Et d'un jour à l'autre on aura disparu", "Serons-nous détestables ?", "Serons-nous admirables ?", "Des géniteurs ou des génies ?", "Dites-nous qui donne naissance aux irresponsables ?", "Ah dites-nous qui, tiens", "Tout le monde sait comment on fait des bébés", "Mais personne sait comment on fait des papas", "Monsieur Je-sais-tout en aurait hérité, c'est ça", "Faut l'sucer d'son pouce ou quoi ?", "Dites-nous où c'est caché, ça doit", "Faire au moins mille fois qu'on a", "Bouffé nos doigts", "Hey !", "[Refrain]", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, où t'es où, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, où t'es où, papaoutai ?", "Où t'es", "Où t'es", "[Pont]", "Où est ton papa ?", "Dis-moi où est ton papa ?", "Sans même devoir lui parler", "Il sait ce qui ne va pas", "Ah sacré papa", "Dis-moi où es-tu caché ?", "Ça doit, faire au moins mille fois que j'ai", "Compté mes doigts", "Hey", "Où est ton papa ?", "Dis-moi où est ton papa ?", "Sans même devoir lui parler", "Il sait ce qui ne va pas", "Ah sacré papa", "Dis-moi où es-tu caché ?", "Ça doit, faire au moins mille fois que j'ai", "Compté mes doigts", "Hey !", "[Refrain]", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, où t'es où, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, papaoutai ?", "Où t'es, où t'es où, papaoutai ?", "Où t'es", "Où t'es"]
     const better = await cleanUpLyrics(papaoutai)
     createForm(better)
+    renderDifficultyBadge(better)
     embed()
   } else {
     const lyrics = await getSong(title, artist)
     const better = await cleanUpLyrics(lyrics)
     createForm(better)
+    renderDifficultyBadge(better)
     getVid(title, artist)
   }
 }
@@ -311,7 +314,7 @@ function lasWd(check) {
 const optionsYT = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': "",
+    'X-RapidAPI-Key': window.APP_CONFIG.rapidApiKey,
     'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
   }
 };

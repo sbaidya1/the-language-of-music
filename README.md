@@ -33,6 +33,8 @@ Now try the interactive features on this song:
   song language is **auto-detected** (`franc-min` sees the French words and
   sets the dropdown to French on load). Try double-clicking **"Comment"** or
   **"reçois"** to see the translation.
+- Notice the **vocabulary difficulty badge** next to the song title — scored
+  automatically from how common the song's French vocabulary is.
 - Open the **⚙ Settings** panel and toggle:
   - **Show first word of each line** — helpful scaffolding when a language is
     new. The first blank of each line is pre-filled.
@@ -57,7 +59,7 @@ Now try the interactive features on this song:
   accents.
 - Per-line playback: hit ▶, transcribe, verify, move on.
 
-### Word-level NLP translation
+### NLP: word-level translation + difficulty scoring
 
 - **Language auto-detection.** The full set of lyric words is fed to
   [`franc-min`](https://github.com/wooorm/franc) — an n-gram language classifier
@@ -67,9 +69,21 @@ Now try the interactive features on this song:
   [MyMemory Translation API](https://mymemory.translated.net/) for the
   source-language → English pair. Results are cached in a `Map` keyed by
   `word|source|target`, so repeated lookups are instant and quota-free.
-- **Zero-config.** No API keys required for this feature — it uses only free,
-  no-auth endpoints.
-- See `js/vocab.js` — a single ~180-line file, heavily commented.
+- **Vocabulary difficulty scoring.** French and Spanish songs get a Beginner /
+  Intermediate / Advanced badge, estimated from how common their vocabulary is
+  against word-frequency data from [`wordfreq`](https://github.com/rspeer/wordfreq).
+  Language is confirmed with the same `franc-min` model used for translation.
+- **Zero-config.** No API keys required for either feature — it uses only free,
+  no-auth endpoints and static frequency data committed in the repo.
+- **Calibrated against real songs, not just the formula on paper.** Testing
+  against actual lyrics (nursery rhymes, pop songs, deliberately archaic and
+  slang-heavy passages) surfaced three bugs invisible from the code alone:
+  French elisions (`j'aime`) breaking frequency lookups, unknown words all
+  getting clamped to one score and collapsing a nursery rhyme and a dense
+  academic passage onto the same badge, and word-overlap language detection
+  producing false positives because `wordfreq`'s lists include common English
+  loanwords. Full write-up, including how each bug was found and fixed:
+  **[docs/nlp.md](docs/nlp.md)**.
 
 ### Teacher mode
 
@@ -89,6 +103,12 @@ Now try the interactive features on this song:
   a `@media (max-width: 900px)` layer that reins in the `vw`-based typography
   so titles don't overflow on phones.
 - The YouTube player uses a `calc()`-computed 16:9 height on narrow viewports.
+
+### Accessibility
+
+- All pages declare `lang="en"`, images have descriptive `alt` text, and
+  icon-only controls (settings, close, home, toggles) carry `aria-label`s so
+  screen readers can announce them.
 
 ---
 
@@ -110,8 +130,7 @@ Two milestones since the initial release:
 
 The direction from here: better dictionary results for short/ambiguous words
 (pairing MyMemory with Wiktionary), spaced-repetition on words you've looked
-up, and a "difficulty score" per song so learners can pick material at their
-level.
+up, and extending vocabulary difficulty scoring beyond French and Spanish.
 
 ---
 
@@ -122,7 +141,8 @@ level.
 - **Hosting + DB:** Firebase Hosting + Cloud Firestore.
 - **NLP:** [`franc-min`](https://github.com/wooorm/franc) (client-side language
   detection) + [MyMemory API](https://mymemory.translated.net/doc/spec.php)
-  (translation).
+  (translation) + [`wordfreq`](https://github.com/rspeer/wordfreq)
+  (vocabulary difficulty scoring). Details in [docs/nlp.md](docs/nlp.md).
 - **Data APIs:** [Genius Lyrics](https://rapidapi.com/Glavier/api/genius-song-lyrics1)
   and [YouTube Search](https://rapidapi.com/ytdlfree/api/youtube-search-results),
   both via RapidAPI.
@@ -144,6 +164,9 @@ Cross-cutting files worth knowing about:
 
 - `css/mobile.css` — responsive + Safari fixes, loaded on every page
 - `js/vocab.js` — the NLP translation feature, loaded on `play.html` and `view.html`
+- `js/difficulty.js` + `js/freq-data.js` — the vocabulary difficulty scorer,
+  loaded on `play.html`; see [docs/nlp.md](docs/nlp.md) for how it works
+- `js/config.js` — your local API keys (gitignored); see `js/config.example.js`
 
 ## Running locally
 
@@ -154,11 +177,17 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
-To exercise the full practice / teacher flows locally you'll need to paste your
-own API keys into the JS files (they're stripped from the repo for security):
+To exercise the full practice / teacher flows locally you'll need your own API
+keys. Copy `js/config.example.js` to `js/config.js` and fill in:
 
-- **RapidAPI key** → `js/main.js`, `js/script.js`, `js/vid.js`
-- **Firebase config** → `js/fire.js`, `js/fire1.js`, `js/quickfire.js`, `js/login.js`
+```js
+window.APP_CONFIG = {
+  rapidApiKey: "",   // used by js/main.js, js/script.js, js/vid.js
+  firebaseApiKey: "" // used by js/fire.js, js/fire1.js, js/quickfire.js, js/login.js
+};
+```
+
+`js/config.js` is gitignored so your keys never get committed.
 
 The **NLP translation feature needs no keys** — try it with the hardcoded
 sample songs *"La Famille" by Tony Parker* and *"Papaoutai" by Stromae* which

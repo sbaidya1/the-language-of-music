@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -16,7 +16,7 @@
 <body onload="createEverything()">
   <div class="main"> 
     <div class="youdidit">
-      <img src="../assets/congrats.svg">
+      <img src="../assets/congrats.svg" alt="Congratulations">
     </div>
       <div class = "content">
         <div class="headsong"></div>
@@ -26,7 +26,7 @@
           <label for="srcLang">Song language:</label>
           <select id="srcLang">
             <option value="es">Spanish</option>
-            <option value="fr">French</option>
+            <option value="fr" selected>French</option>
             <option value="de">German</option>
             <option value="it">Italian</option>
             <option value="pt">Portuguese</option>
@@ -41,47 +41,47 @@
       <div class="vid">
         <div class="vidstuff">
           <div class="icons">
-            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='../index.html'"></i>
-            <i class="fa-solid fa-gears fa-lg" onclick="openSettings()"></i>
-            <i class="fa-solid fa-square-poll-vertical fa-lg" onClick="parent.open('https://forms.gle/j5di71bPfFHXeCLE8')" ></i>
+            <i class="fa-solid fa-house fa-lg" onclick="window.location.href='../index.html'" role="button" aria-label="Home"></i>
+            <i class="fa-solid fa-gears fa-lg" onclick="openSettings()" role="button" aria-label="Settings"></i>
+            <i class="fa-solid fa-square-poll-vertical fa-lg" onClick="parent.open('https://forms.gle/j5di71bPfFHXeCLE8')" role="button" aria-label="Feedback survey"></i>
           </div>
           <div id="playerholder">
             <div class="settings">
               <div class="topstuff">
                 <p id="titSet">Settings</p>
-                <i class="fa-solid fa-xmark" onclick="closeSettings()"></i>
+                <i class="fa-solid fa-xmark" onclick="closeSettings()" role="button" aria-label="Close settings"></i>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="charCt" type="checkbox" onclick="charCt(this)" checked>
+                  <input id="charCt" type="checkbox" onclick="charCt(this)" checked aria-label="Show character count">
                   <span class="slider"></span>
                 </label>
                 <p>Show character count</p>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="firWd" type="checkbox" onclick="firWd(this)">
+                  <input id="firWd" type="checkbox" onclick="firWd(this)" aria-label="Show first word of each line">
                   <span class="slider"></span>
                 </label>
                 <p>Show first word of each line</p>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="lasWd" type="checkbox" onclick="lasWd(this)">
+                  <input id="lasWd" type="checkbox" onclick="lasWd(this)" aria-label="Show last word of each line">
                   <span class="slider"></span>
                 </label>
                 <p>Show last word of each line</p>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="reqAcc" type="checkbox" checked>
+                  <input id="reqAcc" type="checkbox" checked aria-label="Require accents">
                   <span class="slider"></span>
                 </label>
                 <p>Require accents</p>
               </div>
               <div class="options">
                 <label class="switch">
-                  <input id="*rev" type="checkbox" checked>
+                  <input id="*rev" type="checkbox" checked aria-label="Enter three asterisks to reveal word">
                   <span class="slider"></span>
                 </label>
                 <p>Enter *** to reveal word</p>
@@ -100,6 +100,9 @@
       </div>
   </div>
 
+  <script src="../js/config.js"></script>
+  <script src="../js/freq-data.js"></script>
+  <script src="../js/difficulty.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/vid.js"></script>
   <script src="../js/vocab.js"></script>

@@ -4,7 +4,7 @@ import{ getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} fro
 
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: window.APP_CONFIG.firebaseApiKey,
   authDomain: "the-language-of-music.firebaseapp.com",
   projectId: "the-language-of-music",
   storageBucket: "the-language-of-music.appspot.com",

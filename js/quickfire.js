@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebas
 import {getFirestore, collection, query, where,onSnapshot, getDocs, doc, addDoc} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js"
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: window.APP_CONFIG.firebaseApiKey,
   authDomain: "the-language-of-music.firebaseapp.com",
   projectId: "the-language-of-music",
   storageBucket: "the-language-of-music.appspot.com",
