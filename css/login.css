@@ -99,6 +99,7 @@ input[type="radio"]{
 }
 .form-container .form-inner{
   display: flex;
+  align-items: flex-start;
   width: 200%;
 }
 .form-container .form-inner form{

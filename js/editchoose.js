@@ -242,14 +242,10 @@ async function processForm(form) {
   let index = 0
   textareas.forEach(textarea => {
     const line = textarea.value.trim()//.split('\n');
-    if (line == '') {
-      index--;
-    } else {
-      while (cleanlyrics[index] == null) {
-        index++;
-      }
-      cleanlyrics[index] = line
+    while (cleanlyrics[index] == null) {
+      index++;
     }
+    cleanlyrics[index] = (line == '') ? null : line;
     index++
   });
   for (let i = 0; i < cleanlyrics.length; i++) {

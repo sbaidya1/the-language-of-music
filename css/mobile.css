@@ -21,6 +21,18 @@
   body:has(#tex) .main {
     min-height: auto;
   }
+  /* pages/editchoose.html: .main only wraps the header text, with
+     #optionsholder as a sibling after it. Forcing .main to fill the
+     viewport pushes the options far below the header. */
+  body:has(#optionsholder) .main {
+    min-height: auto;
+  }
+  /* pages/login.html: the login/signup tab labels reuse the ".title" class
+     name for an unrelated purpose, so the full-page-hero rule above would
+     stretch the login box to fill the viewport. */
+  .wrapper .title {
+    min-height: auto;
+  }
 }
 
 /* Safari fallback for older versions using -webkit-fill-available */

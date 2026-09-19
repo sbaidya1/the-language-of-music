@@ -16,7 +16,7 @@ function createEverything() {
 
     // Add the title and code elements to the new div.
     var titleElement = document.createElement("div");
-    titleElement.classList.add("title");
+    titleElement.classList.add("lesson-title");
     titleElement.innerText = song.title + " by " + song.artist
 
     var infoDiv = document.createElement("div");

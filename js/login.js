@@ -24,6 +24,8 @@ const loginForm = document.querySelector("form.login");
 const loginBtn = document.querySelector("label.login");
 const signupBtn = document.querySelector("label.signup");
 const signupLink = document.querySelector("form .signup-link a");
+const formContainer = document.querySelector(".form-container");
+const signupFormEl = document.querySelector("form.signup");
 signupBtn.onclick = (()=>{
   loginForm.style.marginLeft = "-50%";
   loginText.style.marginLeft = "-50%";

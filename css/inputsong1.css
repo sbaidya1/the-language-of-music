@@ -12,9 +12,7 @@ body {
 }
 
 #subm {
-  margin-top:20px; 
-  margin-left: 140px;
-  margin-bottom:20px;
+  margin: 20px auto;
   padding: 12px 20px;
   border-radius: 10px;
   font-family: "Montserrat", sans-serif;
