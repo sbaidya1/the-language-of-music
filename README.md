@@ -73,7 +73,7 @@ Now try the interactive features on this song:
   Intermediate / Advanced badge, estimated from how common their vocabulary is
   against word-frequency data from [`wordfreq`](https://github.com/rspeer/wordfreq).
   Language is confirmed with the same `franc-min` model used for translation.
-- **Zero-config.** No API keys required for either feature — it uses only free,
+- **Zero-config.** No API keys required for either feature since it uses only free,
   no-auth endpoints and static frequency data committed in the repo.
 - **Calibrated against real songs, not just the formula on paper.** Testing
   against actual lyrics (nursery rhymes, pop songs, deliberately archaic and
@@ -85,16 +85,18 @@ Now try the interactive features on this song:
   loanwords. Full write-up, including how each bug was found and fixed:
   **[docs/nlp.md](docs/nlp.md)**.
 
-### Teacher mode
+### Teacher Portal
 
-- Teachers log into the **Teacher Portal** and create **lessons**: a curated
-  song with specific blanks chosen, a specific video, and specific settings
-  locked in.
-- Each lesson gets a **play code**. Students enter the code on the practice
-  page and get exactly the lesson their teacher built: same blanks, same
-  video, same rules.
-- Lessons persist in **Cloud Firestore**, so a teacher's classroom set is
-  available across devices.
+<p align="center">
+  <img width="770" alt="Teacher Portal Interface" src="https://github.com/user-attachments/assets/371a1ba9-5824-47a3-abe8-dbdeff9b9569" />
+  <br>
+</p>
+
+* Teachers log into the **Teacher Portal** and create **lessons**: a curated song with specific blanks chosen, a specific video, and specific settings locked in.
+* Each lesson gets a **play code**. Students enter the code on the practice page and get exactly the lesson their teacher built: same blanks, same video, same rules.
+* Lessons persist in **Cloud Firestore**, so a teacher's classroom set is available across devices.
+
+> 🔑 **Demo Credentials:** To access a sample teacher account, use email `demo@email.com` and password `demo123` to sign in and edit/see/create an example song lesson.
 
 ### Accessibility
 
